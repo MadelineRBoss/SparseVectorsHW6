@@ -5,22 +5,22 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/MadelineRBoss/SparseVectorsHW6/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/MadelineRBoss/SparseVectorsHW6/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of SpraseVectorsHW6 is to create a new object type called
-**sparse vector** that reduces memory usage for vector that have large
-amounts of 0 values. Along with a new object, the package also has a
-variety of functions to manipluate sparse vectors.
+The goal of SpraseVectorsHW6 is to …
 
 ## Installation
 
-You can install the development version of SpraseVectorsHW6 like so:
+You can install the development version of SpraseVectorsHW6 from
+[GitHub](https://github.com/) with:
 
 ``` r
-remotes::install_github("MadelineRBoss/SparseVectorHW6")
+# install.packages("pak")
+pak::pak("MadelineRBoss/SparseVectorsHW6")
 ```
 
-## Examples
+## Example
 
 Creating a Sparse Vector
 
@@ -86,14 +86,14 @@ x * y
 print(sparse_sub(x,y))
 #> The sparse vector of size 10 has the following values: 
 #> position: 1 , value: -3 
-#> position: 3 , value: -3 
 #> position: 2 , value: 2 
+#> position: 3 , value: -3 
 #> position: 7 , value: -2
 x - y
 #> The sparse vector of size 10 has the following values: 
 #> position: 1 , value: -3 
-#> position: 3 , value: -3 
 #> position: 2 , value: 2 
+#> position: 3 , value: -3 
 #> position: 7 , value: -2
 ```
 
