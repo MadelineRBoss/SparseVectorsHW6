@@ -1,0 +1,86 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# SpraseVectorsHW6
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of SpraseVectorsHW6 is to create a new object type called **sparse vector** that reduces memory usage for vector that have large amounts of 0 values. Along with a new object, the package also has a variety of functions to manipluate sparse vectors.
+
+## Installation
+
+You can install the development version of SpraseVectorsHW6 like so:
+
+``` r
+remotes::install_github("MadelineRBoss/SparseVectorHW6")
+```
+
+## Examples
+
+Creating a Sparse Vector
+
+```{r example}
+library(SpraseVectorsHW6)
+
+x <- new("sparse_numeric",
+                 value = c(1, 2, 3, 1),
+                 pos = c(1L, 2L, 3L, 5L),
+                 length = 10L)
+y <- new("sparse_numeric",
+                 value = c(4, 6, 1, 2),
+                 pos = c(1L, 3L, 5L, 7L),
+                 length = 10L)
+```
+
+Plot two vectors to see where they overlap
+```{r}
+plot(x, y)
+```
+
+Add, Multiply, Subtract, and Cross Product Vectors
+```{r}
+sparse_add(x,y)
+x + y
+```
+```{r}
+sparse_mult(x,y)
+x * y
+```
+```{r}
+print(sparse_sub(x,y))
+x - y
+```
+```{r}
+print(sparse_crossprod(x,y))
+```
+
+Get the sum, mean, norm, and standardize vector
+```{r}
+sparse_sum(x)
+```
+
+```{r}
+mean(x)
+```
+
+```{r}
+norm(x)
+```
+
+```{r}
+standardize(x)
+```
+
