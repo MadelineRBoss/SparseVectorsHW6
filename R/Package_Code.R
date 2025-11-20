@@ -413,22 +413,20 @@ setMethod("sparse_sum", "sparse_numeric",
 #'
 #' Generic and method to compute the mean of a `sparse_numeric` vector.
 #'
-#' @param object A `sparse_numeric` object.
+#' @param x A `sparse_numeric` object.
 #' @return A numeric mean value.
 #' @name mean
 #' @rdname mean
+#' @aliases mean,sparse_numeric-method
 #' @export
 
-setGeneric("mean", function(object) standardGeneric("mean"))
-
-#' @describeIn mean Compute mean for sparse_numeric.
 setMethod("mean", "sparse_numeric",
-          function(object){
+          function(x){
             sum = 0
-            for(i in object@value){
+            for(i in x@value){
               sum = sum + i
             }
-            sum/object@length
+            sum/x@length
           })
 
 #' Norm of sparse vector
@@ -465,14 +463,22 @@ setGeneric("standardize", function(object) standardGeneric("standardize"))
 
 #' @describeIn standardize Compute the standardize sparse vector for sparse_numeric.
 setMethod("standardize", "sparse_numeric",
-          function(object){
-            my_norm = norm(object)
-            new_value = object@value / my_norm
+          function(object) {
 
-            new("sparse_numeric",
-                value = new_value,
-                pos = object@pos,
-                length = object@length)
+            # Convert sparse → dense
+            dense_object <- as(object, "numeric")
+
+            # Compute mean & sd
+            mu <- mean(dense_object)
+            sigma <- sd(dense_object)
+
+            if (sigma == 0) {
+              stop("Standard deviation is zero; cannot standardize.")
+            }
+
+            # Standardize
+            dense_stand <- (dense_object - mu) / sigma
+
+            # Convert dense → sparse
+            as(dense_stand, "sparse_numeric")
           })
-
-

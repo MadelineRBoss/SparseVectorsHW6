@@ -22,15 +22,15 @@ pak::pak("MadelineRBoss/SparseVectorsHW6")
 
 ## Example
 
-Creating a Sparse Vector
+Creating a Sparse Vector Object
 
 ``` r
 library(SpraseVectorsHW6)
 #> 
 #> Attaching package: 'SpraseVectorsHW6'
-#> The following objects are masked from 'package:base':
+#> The following object is masked from 'package:base':
 #> 
-#>     mean, norm
+#>     norm
 
 x <- new("sparse_numeric",
                  value = c(1, 2, 3, 1),
@@ -122,8 +122,14 @@ norm(x)
 ``` r
 standardize(x)
 #> The sparse vector of size 10 has the following values: 
-#> position: 1 , value: 0.2581989 
-#> position: 2 , value: 0.5163978 
-#> position: 3 , value: 0.7745967 
-#> position: 5 , value: 0.2581989
+#> position: 1 , value: 0.2831925 
+#> position: 2 , value: 1.227168 
+#> position: 3 , value: 2.171143 
+#> position: 4 , value: -0.6607826 
+#> position: 5 , value: 0.2831925 
+#> position: 6 , value: -0.6607826 
+#> position: 7 , value: -0.6607826 
+#> position: 8 , value: -0.6607826 
+#> position: 9 , value: -0.6607826 
+#> position: 10 , value: -0.6607826
 ```

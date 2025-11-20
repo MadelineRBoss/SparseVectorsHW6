@@ -32,7 +32,7 @@ pak::pak("MadelineRBoss/SparseVectorsHW6")
 
 ## Example
 
-Creating a Sparse Vector
+Creating a Sparse Vector Object
 
 ```{r example}
 library(SpraseVectorsHW6)

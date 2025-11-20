@@ -5,12 +5,10 @@
 \alias{mean,sparse_numeric-method}
 \title{Mean of sparse vector}
 \usage{
-mean(object)
-
-\S4method{mean}{sparse_numeric}(object)
+\S4method{mean}{sparse_numeric}(x)
 }
 \arguments{
-\item{object}{A \code{sparse_numeric} object.}
+\item{x}{A \code{sparse_numeric} object.}
 }
 \value{
 A numeric mean value.
@@ -18,8 +16,3 @@ A numeric mean value.
 \description{
 Generic and method to compute the mean of a \code{sparse_numeric} vector.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{mean(sparse_numeric)}: Compute mean for sparse_numeric.
-
-}}

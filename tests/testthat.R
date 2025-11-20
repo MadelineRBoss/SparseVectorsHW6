@@ -194,10 +194,10 @@ test_that("norm", {
 })
 
 test_that("standardize", {
-  result <- as(c(2/sqrt(20), 2/sqrt(20), 2/sqrt(20), 2/sqrt(20), 2/sqrt(20)), "sparse_numeric")
+  result <- as(0, "numeric")
   expect_equal({
-    x <- as(c(2, 2, 2, 2, 2), "sparse_numeric")
-    standardize(x)
+    x <- as(c(1, 2, 3, 0, 1), "sparse_numeric")
+    mean(standardize(x))
   }, result)
 })
 
